@@ -1,0 +1,23 @@
+map h gT
+map l gt
+map T :tabopen<CR>
+
+nmap ,, :nohls<CR><ESC>
+
+" " Use these characters to select links.
+" set hintchars=asdghjklqmwnebrvtycuxizop
+
+" Dvorak chars.
+set hintkeys=aoeuidhtnspyfgcrlqjkxbmwvz
+
+" We additionally add links of any type to the clickable elements, for use with
+" StackOverflow voting arrows or RES image-expanding links.
+set hinttags+=a
+
+" Use vim-mode in text fields.
+set noinsertmode
+
+" Use green-on-black text.
+highlight Hint font-size: 10; border: solid white 1px; color: #00FF00; background-color: #000000; padding: 2px;
+highlight Hint[active] font-size: 10; border: solid white 1px; color: #00FF00; background-color: #000000; padding: 2px; opacity: 0.5;
+

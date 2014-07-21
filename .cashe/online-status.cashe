@@ -1,0 +1,3 @@
+command /Users/Waleed/.local/bin/online-status
+output-file /Users/Waleed/.local/tmp/online-status.cashe-output
+time-to-live 5

@@ -1,0 +1,98 @@
+# arxanas's .nethackrc
+
+OPTIONS=color, DECgraphics
+OPTIONS=autopickup, pickup_types:?!/(=$%, pickup_burden:unencumbered
+OPTIONS=disclose:+i +a -v -g -c, boulder:0, msg_window:reversed, suppress_alert:3.4.3
+OPTIONS=autodig, autoquiver, time, sparkle, pushweapon, safe_pet, hilite_pet, wraptext
+OPTIONS=lit_corridor, showscore, showexp
+OPTIONS=!news, !prayconfirm, !cmdassist
+
+# OPTIONS=timed_delay, !bones
+
+CATNAME=John Bihn
+DOGNAME=John Bihn
+OPTIONS=horsename:John Bihn
+
+AUTOPICKUP_EXCEPTION=">*scare monster"
+AUTOPICKUP_EXCEPTION=">*loadstone*"
+AUTOPICKUP_EXCEPTION=">*gray stone*"
+AUTOPICKUP_EXCEPTION="<*gem*"
+AUTOPICKUP_EXCEPTION=">*chest*"
+AUTOPICKUP_EXCEPTION=">*box*"
+AUTOPICKUP_EXCEPTION=">*crossbow*"
+AUTOPICKUP_EXCEPTION=">*dart*"
+AUTOPICKUP_EXCEPTION="<*daggers"
+AUTOPICKUP_EXCEPTION=">*aklys*"
+AUTOPICKUP_EXCEPTION=">*bow*"
+AUTOPICKUP_EXCEPTION=">*arrow*"
+AUTOPICKUP_EXCEPTION="<*+*arrow*"
+AUTOPICKUP_EXCEPTION="<*clear potion*"
+AUTOPICKUP_EXCEPTION="<*water*"
+AUTOPICKUP_EXCEPTION=">*mace*"
+AUTOPICKUP_EXCEPTION=">*club*"
+AUTOPICKUP_EXCEPTION=">*flail*"
+AUTOPICKUP_EXCEPTION=">*sling*"
+AUTOPICKUP_EXCEPTION=">*pick*"
+
+AUTOPICKUP_EXCEPTION="<the*"
+AUTOPICKUP_EXCEPTION="<called the*"
+AUTOPICKUP_EXCEPTION=">*corpse*"
+AUTOPICKUP_EXCEPTION="<*lichen corpse*"
+AUTOPICKUP_EXCEPTION=">*:0)*"
+AUTOPICKUP_EXCEPTION=">*:-1)*"
+AUTOPICKUP_EXCEPTION=">*dnp*"
+AUTOPICKUP_EXCEPTION=">*cursed*"
+AUTOPICKUP_EXCEPTION=">*worthless*"
+
+OPTIONS=use_darkgray
+OPTIONS=showbuc
+# OPTIONS=!item_use_menu
+# OPTIONS=menu_glyphs
+# OPTIONS=show_obj_sym
+# OPTIONS=hp_monitor
+# OPTIONS=!bones
+# OPTIONS=sortloot:full
+
+OPTIONS=menucolors
+MENUCOLOR=" blessed "=green
+MENUCOLOR=" holy "=green
+MENUCOLOR=" cursed "=red
+MENUCOLOR=" unholy "=red
+MENUCOLOR=" cursed .* (being worn)"=orange&underline
+
+# All of these are by default bold; if you use bold, it actually removes
+# bolding.
+OPTIONS=statuscolors
+STATUSCOLOR=hp%100=green
+STATUSCOLOR=hp%75=green&bold
+STATUSCOLOR=hp%50=yellow
+STATUSCOLOR=hp%30=orange
+STATUSCOLOR=hp%20=red&bold
+STATUSCOLOR=hp%15=red
+STATUSCOLOR=hp%10=red&inverse
+
+STATUSCOLOR=pw%100=green
+STATUSCOLOR=pw%75=green&bold
+STATUSCOLOR=pw%50=yellow
+STATUSCOLOR=pw%25=orange
+STATUSCOLOR=pw%10=red
+STATUSCOLOR=pw%5=red&inverse
+
+STATUSCOLOR=burdened:yellow
+STATUSCOLOR=stressed:orange
+STATUSCOLOR=strained:red&bold
+STATUSCOLOR=overtaxed:red
+STATUSCOLOR=overloaded:red&inverse
+
+STATUSCOLOR=satiated:green
+STATUSCOLOR=hungry:yellow
+STATUSCOLOR=weak:red&bold
+STATUSCOLOR=fainting:red&bold
+STATUSCOLOR=fainted:red&bold&inverse
+
+STATUSCOLOR=hallu:purple
+STATUSCOLOR=conf:yellow
+STATUSCOLOR=stun:orange
+STATUSCOLOR=ill:red
+STATUSCOLOR=foodpois:red
+STATUSCOLOR=slime:red

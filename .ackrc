@@ -1,0 +1,10 @@
+--color
+
+--pager
+less -R
+
+--ignore-dir
+is:.git
+
+--ignore-file
+is:tags

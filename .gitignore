@@ -1,0 +1,93 @@
+# Created by http://gitignore.io
+
+### vim ###
+.*.s[a-w][a-z]
+*.un~
+Session.vim
+.netrwhist
+*~
+
+### OSX ###
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+
+
+# Thumbnails
+._*
+
+# Files that might appear on external disk
+.Spotlight-V100
+.Trashes
+
+### Python ###
+*.py[cod]
+virtualenv
+.venv
+
+# C extensions
+*.so
+# Created by http://www.gitignore.io
+
+### C++ ###
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Packages
+*.egg
+*.egg-info
+dist
+build
+eggs
+parts
+bin
+var
+sdist
+develop-eggs
+.installed.cfg
+lib
+lib64
+__pycache__
+
+# Installer logs
+pip-log.txt
+
+# Unit test / coverage reports
+.coverage
+.tox
+nosetests.xml
+
+# Translations
+*.mo
+
+# Mr Developer
+.mr.developer.cfg
+.project
+.pydevproject
+
+# Rope
+.ropeproject
+
+### IntelliJ ###
+*.iml
+*.ipr
+*.iws
+.idea/
+
+# YouCompleteMe
+.ycm_extra_conf.py
