@@ -6,11 +6,6 @@ export PATH="/usr/local/sbin:/usr/local/bin:$PATH"
 # NodeJS
 export PATH="$PATH:$HOME/Waleed/node_modules/.bin"
 
-# virtualenvwrapper
-export WORKON_HOME="$HOME/.virtualenvs"
-export PROJECT_HOME="$HOME/Workspace"
-source "/usr/local/bin/virtualenvwrapper.sh"
-
 # XAMPP. For mysql and such.
 export PATH="$PATH:/Applications/XAMPP/xamppfiles/bin"
 
@@ -27,8 +22,10 @@ alias tmux="tmux -2"
 # root.
 alias htop="sudo htop"
 
-# Use hub instead of git.
-alias git="hub"
+if which hub >/dev/null; then
+    # Use hub instead of git.
+    alias git="hub"
+fi
 
 # Switch to a clean PS1, for whatever reason.
 alias clean_ps1="PS1=\"\\\$ \""
