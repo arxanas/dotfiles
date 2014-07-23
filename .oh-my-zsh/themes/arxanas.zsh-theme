@@ -136,7 +136,7 @@ build_prompt()
     prompt_virtualenv
     prompt_dir
     prompt_end
-    echo -n " "
+    echo -n "%{$reset_color%} "
 }
 
 RPROMPT='$(build_rprompt)'

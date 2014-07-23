@@ -22,7 +22,7 @@ alias tmux="tmux -2"
 # root.
 alias htop="sudo htop"
 
-if which hub >/dev/null; then
+if command -v hub >/dev/null; then
     # Use hub instead of git.
     alias git="hub"
 fi

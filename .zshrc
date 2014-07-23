@@ -64,6 +64,14 @@ source $ZSH/oh-my-zsh.sh
 
 source ~/.bashrc
 
+# Reset the most recent prompt every second.
+# From http://stackoverflow.com/a/17915260/344643
+TMOUT=1
+TRAPALRM()
+{
+    zle reset-prompt
+}
+
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # # Preferred editor for local and remote sessions
