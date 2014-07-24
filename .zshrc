@@ -56,6 +56,7 @@ plugins=(
     sublime
     tmux
     wd
+    z
 )
 
 source $ZSH/oh-my-zsh.sh

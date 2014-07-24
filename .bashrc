@@ -18,10 +18,6 @@ alias ..="cd ..; .;"
 # vim doesn't use correct colors unless tmux takes the -2 option.
 alias tmux="tmux -2"
 
-# htop doesn't actually report CPU stuff or anything useful unless we run it as
-# root.
-alias htop="sudo htop"
-
 if command -v hub >/dev/null; then
     # Use hub instead of git.
     alias git="hub"
