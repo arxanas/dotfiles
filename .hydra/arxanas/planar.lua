@@ -2,10 +2,10 @@ require "arxanas/init"
 
 -- Symbols --
 local plane = {}
-local plane_metatable = {__index=plane}
+local plane_metatable = {__index = plane}
 
 local plane_manager = {}
-local plane_manager_metatable = {__index=plane_manager}
+local plane_manager_metatable = {__index = plane_manager}
 
 -- Exports --
 arxanas.planar = {}
@@ -33,38 +33,52 @@ end
 --   key: The key, as per 'hotkey.new'.
 --   fn: The function to be called when the hotkey is pressed. It's given this
 --       plane as the first argument.
-function plane:add_hotkey(mods, key, fn)
-  local new_hotkey = hotkey.new(mods, key, function()
-    fn(self)
+function plane:add_hotkey(new_hotkey)
+  assert(self ~= nil)
+
+  hooked_hotkey = hotkey.new(new_hotkey.mods, new_hotkey.key, function()
+    new_hotkey.fn(self)
   end)
 
   if self._enabled then
-    new_hotkey:enable()
+    hooked_hotkey:enable()
   end
 
-  table.insert(self._hotkeys, new_hotkey)
+  table.insert(self._hotkeys, hooked_hotkey)
 end
 
 -- Add a hotkey just like 'add_hotkey', but once the hotkey has triggered,
 -- disable this plane. Usually, hotkeys will disable the mode, so this will be
 -- the right choice in many cases.
-function plane:add_hotkey_autodisable(mods, key, fn)
-  self:add_hotkey(mods, key, function(plane)
-    fn(plane)
-    plane:disable()
-  end)
+function plane:add_hotkey_autodisable(new_hotkey)
+  assert(self ~= nil)
+
+  self:add_hotkey(hotkey.new(new_hotkey.mods, new_hotkey.key, function(plane)
+    new_hotkey.fn(plane)
+    plane._plane_manager:switch_to_default_plane()
+  end))
 end
 
 -- Enable this plane and all its hotkeys, and also disable any other planes
 -- belonging to the same plane_manager.
 function plane:enable()
-  fnutils.each(self._hotkeys, hotkey.enable)
+  assert(self ~= nil)
+
+  if not self.enabled then
+    fnutils.each(self._hotkeys, hotkey.enable)
+  end
+
   self._enabled = true
 end
 
 -- Disable this plane and all its hotkeys.
 function plane:disable()
-  fnutils.each(self._hotkeys, hotkey.disable)
+  assert(self ~= nil)
+
+  if self._enabled then
+    fnutils.each(self._hotkeys, hotkey.disable)
+  end
+
   self._enabled = false
 end
 
@@ -83,33 +97,43 @@ end
 -- returns to the default plane. If the 'on_break_key' method is called and it
 -- returns a falsey value, the break is cancelled, although this might be a bad
 -- idea.
-function plane_manager.new(mods, key)
+function plane_manager.new(plane_hotkey)
   local plane_manager = setmetatable({
     _default_plane = nil, -- Set this below.
-    _planes = {_default_plane},
+    _planes = {},
   }, plane_manager_metatable)
 
   local default_plane = plane.new(plane_manager)
   plane_manager._default_plane = default_plane
   default_plane:enable()
+  table.insert(plane_manager._planes, default_plane)
 
-  hotkey.bind(mods, key, function()
+  hotkey.bind(plane_hotkey.mods, plane_hotkey.key, function()
     plane_manager:switch_to_plane(default_plane)
   end)
 
   return plane_manager
 end
 
--- Add a new plane for the given hotkey. Registers the plane (as disabled by
--- default) and returns it.
-function plane_manager:add_plane(hotkey)
-  local plane = plane.new(self)
-  table.insert(self._planes, plane)
-  return plane.new(self)
+-- Add a new disabled plane which is set to trigger from the default plane
+-- when mods + key is pressed. Returns that plane.
+function plane_manager:add_plane(plane_hotkey)
+  assert(self ~= nil)
+
+  local new_plane = plane.new(self)
+  table.insert(self._planes, new_plane)
+
+  self._default_plane:add_hotkey(hotkey.new(plane_hotkey.mods, plane_hotkey.key, function()
+    self:switch_to_plane(new_plane)
+  end))
+
+  return new_plane
 end
 
 -- Get the default plane.
 function plane_manager:get_default_plane()
+  assert(self ~= nil)
+
   return self._default_plane
 end
 
@@ -119,13 +143,17 @@ end
 -- already on that plane.
 --
 --   plane: The plane object to switch to.
-function plane_manager:switch_to_plane(plane)
+function plane_manager:switch_to_plane(new_plane)
+  assert(self ~= nil)
+
   fnutils.each(self._planes, plane.disable)
-  plane:enable()
+  new_plane:enable()
 end
 
 -- Switch to the default plane.
 function plane_manager:switch_to_default_plane()
+  assert(self ~= nil)
+
   self:switch_to_plane(self._default_plane)
 end
 

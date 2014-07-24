@@ -13,9 +13,14 @@ function on_startup()
 end
 
 function init_planes()
-  plane_manager = arxanas.planar.plane_manager.new(HYPER, "c")
-  default_plane = plane_manager:get_default_plane()
-  default_plane:add_hotkey(HYPER, "r", hydra.reload)
+  local plane_manager = arxanas.planar.plane_manager.new(hotkey.new(HYPER, "c"))
+  local default_plane = plane_manager:get_default_plane()
+  default_plane:add_hotkey(hotkey.new(HYPER, "r", hydra.reload))
+
+  local app_binder = plane_manager:add_plane(hotkey.new(HYPER, "g"))
+  app_binder:add_hotkey_autodisable(hotkey.new(HYPER, "g", function(plane)
+    hydra.alert("App binder!")
+  end))
 end
 
 function main()
