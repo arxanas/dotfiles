@@ -1,4 +1,8 @@
+require "arxanas/init"
+
 arxanas.update_checker = {}
+
+-- Check for updates, and notify if there is an update available.
 function arxanas.update_checker.check_for_updates()
   notify.register("hydra-update-available", function()
     os.execute("open " .. updates.changelogurl)
