@@ -8,9 +8,8 @@ local plane_manager = {}
 local plane_manager_metatable = {__index = plane_manager}
 
 -- Exports --
-arxanas.planar = {}
-arxanas.planar.plane = plane
-arxanas.planar.plane_manager = plane_manager
+arxanas.plane = plane
+arxanas.plane_manager = plane_manager
 
 -- Plane --
 
@@ -38,16 +37,16 @@ end
 function plane:add_hotkey(new_hotkey)
   assert(self ~= nil)
 
-  self:add_hotkey_no_switch(hotkey.new(
-    new_hotkey.mods,
-    new_hotkey.key,
-    function(plane)
+  self:add_hotkey_no_switch({
+    mods = new_hotkey.mods,
+    key = new_hotkey.key,
+    fn = function(plane)
       assert(plane ~= nil)
 
       new_hotkey.fn(plane)
       plane._plane_manager:switch_to_default_plane()
-    end
-  ))
+    end,
+  })
 end
 
 -- Add a hotkey just like 'add_hotkey', but once the hotkey has triggered,
@@ -129,7 +128,7 @@ function plane_manager.new(plane_hotkey)
   -- Break key.
   hotkey.bind(plane_hotkey.mods, plane_hotkey.key, function()
     plane_manager:switch_to_plane(default_plane)
-  end)
+  end, function() end)
 
   return plane_manager
 end
@@ -142,13 +141,13 @@ function plane_manager:add_plane(plane_hotkey)
   local new_plane = plane.new(self)
   table.insert(self._planes, new_plane)
 
-  self._default_plane:add_hotkey_no_switch(hotkey.new(
-    plane_hotkey.mods,
-    plane_hotkey.key,
-    function()
+  self._default_plane:add_hotkey_no_switch({
+    mods = plane_hotkey.mods,
+    key = plane_hotkey.key,
+    fn = function()
       self:switch_to_plane(new_plane)
-    end
-  ))
+    end,
+  })
 
   return new_plane
 end
