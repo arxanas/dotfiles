@@ -62,6 +62,10 @@ function plane:add_hotkey_no_switch(new_hotkey)
 
   if self._enabled then
     hooked_hotkey:enable()
+
+    if self.on_leave then
+      self:on_leave()
+    end
   end
 
   table.insert(self._hotkeys, hooked_hotkey)
@@ -74,6 +78,10 @@ function plane:enable()
 
   if not self._enabled then
     fnutils.each(self._hotkeys, hotkey.enable)
+
+    if self.on_enter then
+      self:on_enter()
+    end
   end
 
   self._enabled = true
@@ -171,5 +179,3 @@ function plane_manager:switch_to_default_plane()
 
   self:switch_to_plane(self._default_plane)
 end
-
--- TODO: Implement events on_break, on_leave, on_enter
