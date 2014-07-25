@@ -25,7 +25,9 @@ function plane.new(plane_manager)
   }, plane_metatable)
 end
 
--- Add a hotkey which can be triggered while this plane is enabled.
+-- Add a hotkey which can be triggered while this plane is enabled. The hotkey
+-- will switch back to the default plane by default; if you don't want this
+-- behavior, use 'add_hotkey_no_switch' instead.
 --
 -- You can't add more than one function for a given hotkey.
 --
@@ -36,7 +38,25 @@ end
 function plane:add_hotkey(new_hotkey)
   assert(self ~= nil)
 
-  hooked_hotkey = hotkey.new(new_hotkey.mods, new_hotkey.key, function()
+  self:add_hotkey_no_switch(hotkey.new(
+    new_hotkey.mods,
+    new_hotkey.key,
+    function(plane)
+      assert(plane ~= nil)
+
+      new_hotkey.fn(plane)
+      plane._plane_manager:switch_to_default_plane()
+    end
+  ))
+end
+
+-- Add a hotkey just like 'add_hotkey', but once the hotkey has triggered,
+-- disable this plane. Usually, hotkeys will disable the mode, so this will be
+-- the right choice in many cases.
+function plane:add_hotkey_no_switch(new_hotkey)
+  assert(self ~= nil)
+
+  local hooked_hotkey = hotkey.new(new_hotkey.mods, new_hotkey.key, function()
     new_hotkey.fn(self)
   end)
 
@@ -47,24 +67,12 @@ function plane:add_hotkey(new_hotkey)
   table.insert(self._hotkeys, hooked_hotkey)
 end
 
--- Add a hotkey just like 'add_hotkey', but once the hotkey has triggered,
--- disable this plane. Usually, hotkeys will disable the mode, so this will be
--- the right choice in many cases.
-function plane:add_hotkey_autodisable(new_hotkey)
-  assert(self ~= nil)
-
-  self:add_hotkey(hotkey.new(new_hotkey.mods, new_hotkey.key, function(plane)
-    new_hotkey.fn(plane)
-    plane._plane_manager:switch_to_default_plane()
-  end))
-end
-
 -- Enable this plane and all its hotkeys, and also disable any other planes
 -- belonging to the same plane_manager.
 function plane:enable()
   assert(self ~= nil)
 
-  if not self.enabled then
+  if not self._enabled then
     fnutils.each(self._hotkeys, hotkey.enable)
   end
 
@@ -103,11 +111,14 @@ function plane_manager.new(plane_hotkey)
     _planes = {},
   }, plane_manager_metatable)
 
+  -- Since the plane takes a reference to its manager, we have to construct the
+  -- manager first and then inject the default plane.
   local default_plane = plane.new(plane_manager)
   plane_manager._default_plane = default_plane
   default_plane:enable()
   table.insert(plane_manager._planes, default_plane)
 
+  -- Break key.
   hotkey.bind(plane_hotkey.mods, plane_hotkey.key, function()
     plane_manager:switch_to_plane(default_plane)
   end)
@@ -123,9 +134,13 @@ function plane_manager:add_plane(plane_hotkey)
   local new_plane = plane.new(self)
   table.insert(self._planes, new_plane)
 
-  self._default_plane:add_hotkey(hotkey.new(plane_hotkey.mods, plane_hotkey.key, function()
-    self:switch_to_plane(new_plane)
-  end))
+  self._default_plane:add_hotkey_no_switch(hotkey.new(
+    plane_hotkey.mods,
+    plane_hotkey.key,
+    function()
+      self:switch_to_plane(new_plane)
+    end
+  ))
 
   return new_plane
 end
@@ -158,4 +173,3 @@ function plane_manager:switch_to_default_plane()
 end
 
 -- TODO: Implement events on_break, on_leave, on_enter
--- TODO: Make add_hotkey_autodisable the default.

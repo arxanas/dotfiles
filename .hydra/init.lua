@@ -4,7 +4,7 @@ end
 douserfile "arxanas/update_checker"
 douserfile "arxanas/planar"
 
-HYPER = {"ctrl", "cmd"}
+HYPER = {"ctrl", "cmd", "alt", "shift"}
 
 
 function on_startup()
@@ -15,10 +15,10 @@ end
 function init_planes()
   local plane_manager = arxanas.planar.plane_manager.new(hotkey.new(HYPER, "c"))
   local default_plane = plane_manager:get_default_plane()
-  default_plane:add_hotkey(hotkey.new(HYPER, "r", hydra.reload))
+  default_plane:add_hotkey_no_switch(hotkey.new(HYPER, "r", hydra.reload))
 
   local app_binder = plane_manager:add_plane(hotkey.new(HYPER, "g"))
-  app_binder:add_hotkey_autodisable(hotkey.new(HYPER, "g", function(plane)
+  app_binder:add_hotkey(hotkey.new(HYPER, "g", function(plane)
     hydra.alert("App binder!")
   end))
 end
