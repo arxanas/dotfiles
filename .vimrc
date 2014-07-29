@@ -12,6 +12,11 @@ Plugin 'tpope/vim-surround'
 Plugin 'Lokaltog/vim-powerline'
 " Plugin 'bling/vim-airline'
 Plugin 'Lokaltog/vim-easymotion'
+Plugin 'fholgado/minibufexpl.vim'
+Plugin 'majutsushi/tagbar'
+Plugin 'terryma/vim-multiple-cursors'
+Plugin 'xolox/vim-misc'
+Plugin 'xolox/vim-easytags'
 
 " Notice that this kills ,gt so you should probably fix that.
 " Plugin 'mhinz/vim-signify'
@@ -67,7 +72,7 @@ set statusline+=[%l\ %v] " Row and column
 
 "" YCM
 " Don't ask every time to load the.ycm_extra_conf.py file.
-let g:ycm_confirm_extra_conf = 1
+let g:ycm_confirm_extra_conf = 0
 " Close the preview (docs) window after autocompleting.
 let g:ycm_autoclose_preview_window_after_completion = 1
 " Also close it when leaving insert mode, so that it doesn't stay open all the
@@ -138,23 +143,19 @@ nnoremap <Leader>as :e %:r.cpp<CR>
 " you've searched.
 nnoremap <Leader><Leader> :nohls<CR>
 
-" Let ,m go back a tab and ,. go forward a tab.
-nnoremap <Leader>m :tabprevious<CR>
-
 " Edit a file with ,e.
-nnoremap <Leader>e :tab<Space>new<Space>
+nnoremap <Leader>e :edit<Space>
 
 " Save a file with ,w.
 nnoremap <Leader>w :w<CR>
 
-" Close the file /buffer/ with ,Q -- this actually closes the file.
-nnoremap <Leader>Q :bdelete<CR>
+" Open buffer-switching.
+nnoremap <Leader>b :b
 
-" Close the file pane with ,q.
-nnoremap <Leader>q :q<CR>
+" Close the file /buffer/ with ,q -- this actually closes the file.
+nnoremap <Leader>q :bdelete<CR>
 
-" Always show the tab bar (at the top of the screen).
-set showtabline=2
+nnoremap <Leader>] :TagbarOpen fjc<CR>
 
 " Open new windows at the bottom and right instead of the top and left.
 " set splitbelow
