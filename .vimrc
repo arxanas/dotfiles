@@ -5,18 +5,27 @@ set nocompatible
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'scrooloose/syntastic'
-Plugin 'Raimondi/delimitMate'
-Plugin 'tpope/vim-surround'
+
+" Appearance.
 Plugin 'Lokaltog/vim-powerline'
 " Plugin 'bling/vim-airline'
-Plugin 'Lokaltog/vim-easymotion'
+
+" IDE.
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'scrooloose/syntastic'
 Plugin 'fholgado/minibufexpl.vim'
 Plugin 'majutsushi/tagbar'
-Plugin 'terryma/vim-multiple-cursors'
 Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-easytags'
+
+" Editing.
+Plugin 'Raimondi/delimitMate'
+Plugin 'terryma/vim-multiple-cursors'
+Plugin 'tpope/vim-surround'
+Plugin 'Lokaltog/vim-easymotion'
+
+" Languages.
+Plugin 'groenewege/vim-less'
 
 " Notice that this kills ,gt so you should probably fix that.
 " Plugin 'mhinz/vim-signify'
