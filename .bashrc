@@ -1,16 +1,6 @@
 #!/bin/bash
 
-# Homebrew
-export PATH="/usr/local/sbin:/usr/local/bin:$PATH"
-
-# NodeJS
-export PATH="$PATH:$HOME/Waleed/node_modules/.bin"
-
-# XAMPP. For mysql and such.
-export PATH="$PATH:/Applications/XAMPP/xamppfiles/bin"
-
-# Other stuff
-export PATH="$HOME/.local/bin:$PATH"
+source ~/.profile
 
 alias .="ls -1AFGhl"
 alias ..="cd ..; .;"
@@ -90,10 +80,6 @@ mcd()
     mkdir -p "$@"
     cd "$@"
 }
-
-# vim as editor
-export VISUAL="vim"
-export EDITOR="vim"
 
 # Open multiple files in panes.
 alias vim="vim -O"
