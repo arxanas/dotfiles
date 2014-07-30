@@ -37,7 +37,7 @@ end
 function plane:add_hotkey(new_hotkey)
   assert(self ~= nil)
 
-  self:add_hotkey_no_switch({
+  return self:add_hotkey_no_switch({
     mods = new_hotkey.mods,
     key = new_hotkey.key,
     fn = function(plane)
@@ -68,6 +68,8 @@ function plane:add_hotkey_no_switch(new_hotkey)
   end
 
   table.insert(self._hotkeys, hooked_hotkey)
+
+  return hooked_hotkey
 end
 
 -- Enable this plane and all its hotkeys, and also disable any other planes
@@ -84,6 +86,8 @@ function plane:enable()
   end
 
   self._enabled = true
+
+  return self
 end
 
 -- Disable this plane and all its hotkeys.
@@ -95,6 +99,8 @@ function plane:disable()
   end
 
   self._enabled = false
+
+  return self
 end
 
 -- Plane manager --
@@ -127,6 +133,10 @@ function plane_manager.new(plane_hotkey)
 
   -- Break key.
   hotkey.bind(plane_hotkey.mods, plane_hotkey.key, function()
+    if plane_manager.on_break then
+      plane_manager:on_break()
+    end
+
     plane_manager:switch_to_plane(default_plane)
   end, function() end)
 
@@ -170,11 +180,13 @@ function plane_manager:switch_to_plane(new_plane)
 
   fnutils.each(self._planes, plane.disable)
   new_plane:enable()
+
+  return new_plane
 end
 
 -- Switch to the default plane.
 function plane_manager:switch_to_default_plane()
   assert(self ~= nil)
 
-  self:switch_to_plane(self._default_plane)
+  return self:switch_to_plane(self._default_plane)
 end
