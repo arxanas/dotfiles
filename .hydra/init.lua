@@ -33,7 +33,7 @@ end
 function main()
   hydra.alert("Reloaded hydra.", 0.5)
 
-  -- on_startup()
+  on_startup()
   init_planes()
 
   -- TODO: enable in regular mode.
