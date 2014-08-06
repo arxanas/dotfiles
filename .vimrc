@@ -26,6 +26,9 @@ Plugin 'Lokaltog/vim-easymotion'
 
 " Languages.
 Plugin 'groenewege/vim-less'
+Plugin 'JesseKPhillips/d.vim'
+Plugin 'Hackerpilot/DCD', {'rtp': 'editors/vim'}
+let g:dcd_path = expand('~/.vim/bundle/DCD')
 
 " Notice that this kills ,gt so you should probably fix that.
 " Plugin 'mhinz/vim-signify'
