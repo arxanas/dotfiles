@@ -108,7 +108,8 @@ set softtabstop=4
 " Fix backspace issues.
 set backspace=indent,eol,start
 
-" Show the autocompletion menu.
+" Show the full list of autocompletions when trying to tab-complete command in
+" command mode, rather than cycling through completions.
 set wildmenu
 set wildmode=list:longest:full
 
@@ -141,9 +142,6 @@ nnoremap <Leader>k 0f(a<CR><Esc>$F)i<CR><Esc>kw>>:s/, /,\r\t/g<CR>j$
 
 " Let ,f justify the paragraph you're in.
 nnoremap <Leader>f {gq}
-
-" Let ,j run make.
-nnoremap <Leader>j :make<CR><CR>
 
 " Use ,sa to switch to .h file.
 nnoremap <Leader>sa :e %:r.h<CR>
@@ -221,4 +219,3 @@ nnoremap Y y$
 
 " Highlight other paren.
 highlight MatchParen ctermbg=4
-
