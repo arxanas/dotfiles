@@ -8,3 +8,6 @@ is:.git
 
 --ignore-file
 is:tags
+
+--ignore-dir
+is:.venv
