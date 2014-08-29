@@ -26,6 +26,8 @@ Plugin 'Lokaltog/vim-easymotion'
 
 " Languages.
 Plugin 'groenewege/vim-less'
+Plugin 'kchmck/vim-coffee-script'
+autocmd BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
 Plugin 'JesseKPhillips/d.vim'
 Plugin 'Hackerpilot/DCD', {'rtp': 'editors/vim'}
 let g:dcd_path = expand('~/.vim/bundle/DCD')
