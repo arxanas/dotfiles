@@ -11,3 +11,9 @@ is:tags
 
 --ignore-dir
 is:.venv
+
+--ignore-dir
+is:build
+
+--ignore-dir
+is:dist
