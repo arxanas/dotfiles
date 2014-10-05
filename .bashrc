@@ -2,8 +2,7 @@
 
 source ~/.profile
 
-alias .="ls -1AFGhl"
-alias ..="cd ..; .;"
+alias ..="cd ..; l;"
 
 # vim doesn't use correct colors unless tmux takes the -2 option.
 alias tmux="tmux -2"
@@ -103,3 +102,9 @@ alias nethack="rm -f /usr/games/lib/nethackdir/bon*.Z; /usr/games/bin/nethack"
 #         echo "$(tput setaf 1)$(tput bold)Warning:$(tput sgr0) profile in this directory exists but is not safe to load."
 #     fi
 # fi
+
+export ANDROID_HOME=/usr/local/opt/android-sdk
+source ~/.homebrew_github_api_token
+
+export NVM_DIR="/Users/Waleed/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"  # This loads nvm
