@@ -36,9 +36,9 @@ prompt_battery()
         elif [[ "$percent" -gt 50 ]]; then
             echo -n "%{$FG[130]%}"
         elif [[ "$percent" -gt 35 ]]; then
-            echo -n "%{$fg_bold[red]%}"
-        else
             echo -n "%{$fg_no_bold[red]%}"
+        else
+            echo -n "%{$fg_bold[red]%}"
         fi
 
         echo -n "$battery_bar"
