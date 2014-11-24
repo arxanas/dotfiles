@@ -26,6 +26,7 @@ Plugin 'Lokaltog/vim-easymotion'
 
 " Languages.
 Plugin 'groenewege/vim-less'
+Plugin 'xolox/vim-lua-ftplugin'
 Plugin 'kchmck/vim-coffee-script'
 autocmd BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
 Plugin 'JesseKPhillips/d.vim'
