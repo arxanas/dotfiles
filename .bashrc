@@ -40,7 +40,7 @@ load_virtualenv()
                 return 0
             fi
 
-            current_dir="$(dirname $current_dir)"
+            current_dir=$(dirname "$current_dir")
         done
         return 1
     }
