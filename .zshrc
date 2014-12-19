@@ -55,6 +55,7 @@ plugins=(
     rsync
     sublime
     tmux
+    vagrant
     wd
     z
 )
