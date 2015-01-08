@@ -148,6 +148,7 @@ nnoremap <Leader>k 0f(a<CR><Esc>$F)i<CR><Esc>kw>>:s/, /,\r\t/g<CR>j$
 
 " Let ,f justify the paragraph you're in.
 nnoremap <Leader>f {gq}
+inoremap <Leader>f <Esc>{gq}A
 
 " Use ,sa to switch to .h file.
 nnoremap <Leader>sa :e %:r.h<CR>
