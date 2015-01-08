@@ -13,10 +13,12 @@ Plugin 'Lokaltog/vim-powerline'
 " IDE.
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'scrooloose/syntastic'
-Plugin 'fholgado/minibufexpl.vim'
+" Plugin 'fholgado/minibufexpl.vim'
 Plugin 'majutsushi/tagbar'
 Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-easytags'
+Plugin 'tpope/vim-fugitive'
+Plugin 'scrooloose/nerdtree'
 
 " Editing.
 Plugin 'Raimondi/delimitMate'
@@ -34,7 +36,7 @@ Plugin 'Hackerpilot/DCD', {'rtp': 'editors/vim'}
 let g:dcd_path = expand('~/.vim/bundle/DCD')
 
 " Notice that this kills ,gt so you should probably fix that.
-" Plugin 'mhinz/vim-signify'
+Plugin 'mhinz/vim-signify'
 call vundle#end()
 
 let g:signify_vcs_list = ['git']
@@ -165,6 +167,9 @@ nnoremap <Leader>w :w<CR>
 
 " Save and make with ,m
 nmap <Leader>m ,w:silent !make<CR>:redraw!<CR>
+
+" Open NERDTree with ,n.
+nmap <Leader>n :NERDTreeToggle<CR>
 
 " Toggle paste and nopaste mode with ,p.
 set pastetoggle=<Leader>p
