@@ -24,6 +24,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'Raimondi/delimitMate'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-repeat'
 Plugin 'Lokaltog/vim-easymotion'
 
 " Languages.
