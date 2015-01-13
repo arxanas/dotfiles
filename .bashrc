@@ -63,6 +63,12 @@ load_virtualenv()
 }
 load_virtualenv
 
+virtualenv()
+{
+    command virtualenv "$@"
+    load_virtualenv
+}
+
 cd()
 {
     if [[ -n "$VIRTUAL_ENV" && -z "$@" ]]; then
