@@ -15,6 +15,7 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'scrooloose/syntastic'
 " Plugin 'fholgado/minibufexpl.vim'
 Plugin 'majutsushi/tagbar'
+Plugin 'kien/ctrlp.vim'
 Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-easytags'
 Plugin 'tpope/vim-fugitive'
@@ -120,6 +121,9 @@ set backspace=indent,eol,start
 set wildmenu
 set wildmode=list:longest:full
 
+" Use tags with Ctrl-P
+let g:ctrlp_extensions = ['tag', 'buffertag', 'quickfix' , 'line', 'mixed']
+
 " Use case exactly as-is when autocompleting.
 set noinfercase
 
@@ -183,6 +187,8 @@ nnoremap <Leader>b :b
 nnoremap <Leader>q :bdelete<CR>
 
 nnoremap <Leader>] :TagbarOpen fjc<CR>
+nnoremap <Leader>pf :CtrlP<CR>
+nnoremap <Leader>pt :CtrlPTag<CR>
 
 " Open new windows at the bottom and right instead of the top and left.
 " set splitbelow
@@ -208,8 +214,6 @@ let g:EasyMotion_leader_key="<Leader>g"
 
 " Search upward to the home directory for a tags file.
 set tags+=tags;$HOME
-
-" Search up to the home directory for a tags file.
 
 " Don't have a delay when pressinc <ESC> to exit from insert or visual mode.
 set ttimeout
