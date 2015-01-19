@@ -21,6 +21,25 @@ if [[ -z "$ZSH_VERSION" ]]; then
     export PS1="\w \[$(tput bold)\]\[$(tput setaf 3)\]$\[$(tput sgr0)\] "
 fi
 
+# Timetrap -- add a 'switch' option (overriding the old one) to switch between
+# sheets.
+t()
+{
+    local mode="$1"
+    local sheet="$2"
+
+    if [[ "$mode" == "switch" ]]; then
+        if [[ -z "$sheet" ]]; then
+            echo >/dev/stderr 'No sheet provided.'
+            return 1
+        else
+            command t out && command t sheet "$sheet" && command t in
+        fi
+    else
+        command t "$@"
+    fi
+}
+
 export VENV_NAME=".venv"
 load_virtualenv()
 {
