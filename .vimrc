@@ -100,6 +100,8 @@ let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
 " Use global conf file.
 let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
+" Let YCM know that we used Homebrew Python.
+let g:ycm_path_to_python_interpreter = '/usr/local/bin/python'
 
 let g:delimitMate_expand_cr = 1
 
