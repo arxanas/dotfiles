@@ -2,6 +2,7 @@
 
 source ~/.profile
 
+alias l="ls -lah"
 alias ..="cd ..; l;"
 
 # vim doesn't use correct colors unless tmux takes the -2 option.
