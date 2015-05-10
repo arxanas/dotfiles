@@ -34,7 +34,9 @@ t()
             echo >/dev/stderr 'No sheet provided.'
             return 1
         else
-            command t out && command t sheet "$sheet" && command t in
+            shift; shift;
+
+            command t out "$@" && command t sheet "$sheet" && command t in "$@"
         fi
     else
         command t "$@"
