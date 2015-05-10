@@ -71,7 +71,7 @@ source ~/.bashrc
 
 # Reset the most recent prompt every second.
 # From http://stackoverflow.com/a/17915260/344643
-TMOUT=1
+TMOUT=5
 TRAPALRM()
 {
     zle reset-prompt
