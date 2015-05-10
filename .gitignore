@@ -12,6 +12,7 @@ Session.vim
 .AppleDouble
 .LSOverride
 Icon
+*.dSYM/
 
 
 # Thumbnails
@@ -90,3 +91,6 @@ nosetests.xml
 
 # YouCompleteMe
 .ycm_extra_conf.py
+
+# OSXFUSE
+.fuse_hidden*
