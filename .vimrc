@@ -30,10 +30,17 @@ Plugin 'tpope/vim-repeat'
 Plugin 'Lokaltog/vim-easymotion'
 
 " Languages.
+"" LESS.
 Plugin 'groenewege/vim-less'
+
+"" Lua.
 Plugin 'xolox/vim-lua-ftplugin'
+
+"" Coffeescript.
 Plugin 'kchmck/vim-coffee-script'
 autocmd BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
+
+"" D.
 Plugin 'JesseKPhillips/d.vim'
 Plugin 'Hackerpilot/DCD', {'rtp': 'editors/vim'}
 let g:dcd_path = expand('~/.vim/bundle/DCD')
