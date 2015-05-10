@@ -8,6 +8,7 @@ Plugin 'gmarik/Vundle.vim'
 
 " Appearance.
 Plugin 'Lokaltog/vim-powerline'
+Plugin 'wellsjo/wells-colorscheme.vim'
 " Plugin 'bling/vim-airline'
 
 " IDE.
@@ -77,7 +78,8 @@ highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
 
 " Make colors not sickening.
-set bg=light
+set bg=dark
+colorscheme wells-colors
 
 " Statusline
 let g:Powerline_symbols="fancy"
