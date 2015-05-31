@@ -122,11 +122,13 @@ prompt_dir()
     prompt_segment 238 253
     echo -n "${PWD/#$HOME/~} "
 
-    # Draw a orange-ish # if root; otherwise a yellow $.
+    # Draw a orange-ish # if root; otherwise a $.
     if [[ "$EUID" == "0" ]]; then
         echo -n "%{$fg_bold[red]%}#"
     else
-        echo -n "%{$fg_bold[yellow]%}\$"
+        # Draw a red $ if the last command had a non-zero exit status, or a
+        # yellow one otherwise.
+        echo -n "%(?.%{$fg_bold[yellow]%}.%{$fg_bold[red]%})\$"
     fi
 }
 
