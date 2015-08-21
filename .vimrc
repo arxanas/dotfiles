@@ -9,27 +9,44 @@ Plugin 'gmarik/Vundle.vim'
 " Appearance.
 Plugin 'Lokaltog/vim-powerline'
 Plugin 'wellsjo/wells-colorscheme.vim'
+" Plugin 'bling/vim-airline'
 
 " IDE.
 Plugin 'Valloric/YouCompleteMe'
-Plugin 'majutsushi/tagbar'
-Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
-Plugin 'tpope/vim-fugitive'
-Plugin 'xolox/vim-easytags'
+" Plugin 'fholgado/minibufexpl.vim'
+Plugin 'majutsushi/tagbar'
+Plugin 'kien/ctrlp.vim'
 Plugin 'xolox/vim-misc'
+Plugin 'xolox/vim-easytags'
+Plugin 'tpope/vim-fugitive'
+Plugin 'scrooloose/nerdtree'
 
 " Editing.
-Plugin 'Lokaltog/vim-easymotion'
 Plugin 'Raimondi/delimitMate'
-Plugin 'Shougo/neoinclude.vim'
-Plugin 'Shougo/unite.vim'
-Plugin 'Shougo/vimproc.vim'
-Plugin 'mhinz/vim-signify'
 Plugin 'terryma/vim-multiple-cursors'
-Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
-Plugin 'tsukkee/unite-tag'
+Plugin 'tpope/vim-repeat'
+Plugin 'Lokaltog/vim-easymotion'
+
+" Languages.
+"" LESS.
+Plugin 'groenewege/vim-less'
+
+"" Lua.
+Plugin 'xolox/vim-lua-ftplugin'
+
+"" Coffeescript.
+Plugin 'kchmck/vim-coffee-script'
+autocmd BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
+
+"" D.
+Plugin 'JesseKPhillips/d.vim'
+Plugin 'Hackerpilot/DCD', {'rtp': 'editors/vim'}
+let g:dcd_path = expand('~/.vim/bundle/DCD')
+
+" Notice that this kills ,gt so you should probably fix that.
+Plugin 'mhinz/vim-signify'
 call vundle#end()
 
 let g:signify_vcs_list = ['git']
@@ -115,6 +132,9 @@ set backspace=indent,eol,start
 set wildmenu
 set wildmode=list:longest:full
 
+" Use tags with Ctrl-P
+let g:ctrlp_extensions = ['tag', 'buffertag', 'quickfix' , 'line', 'mixed']
+
 " Use case exactly as-is when autocompleting.
 set noinfercase
 
@@ -178,22 +198,8 @@ nnoremap <Leader>b :b
 nnoremap <Leader>q :bdelete<CR>
 
 nnoremap <Leader>] :TagbarOpen fjc<CR>
-
-"" Unite.
-" Use fuzzy matches.
-call unite#filters#matcher_default#use(['matcher_fuzzy'])
-call unite#custom#source('buffer,file_rec/async,tag', 'sorters', 'sorter_rank')
-
-" Always start in insert mode.
-call unite#custom#profile('default', 'context', {
-\     'start_insert': 1,
-\ })
-
-" Ignore files in these directories.
-call unite#custom#source('file_rec/async', 'ignore_globs', ['.venv/**'])
-
-nnoremap <Leader>lf :Unite buffer file_rec/async<CR>
-nnoremap <Leader>lt :Unite tag<CR>
+nnoremap <Leader>pf :CtrlP<CR>
+nnoremap <Leader>pt :CtrlPTag<CR>
 
 " Open new windows at the bottom and right instead of the top and left.
 " set splitbelow
