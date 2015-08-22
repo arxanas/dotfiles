@@ -50,7 +50,7 @@ setopt no_share_history
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(
     brew
-    git
+    github
     npm
     osx
     pip
