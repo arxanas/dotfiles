@@ -26,6 +26,9 @@ source ~/.homebrew_github_api_token
 export NVM_DIR="/Users/Waleed/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"  # This loads nvm
 
+# Pebble.
+export PATH="$PATH:/usr/local/Cellar/pebble-sdk/3.2/Pebble"
+
 # Custom utilities.
 export PATH="$HOME/.local/bin:$PATH"
 
