@@ -21,6 +21,7 @@ Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-easytags'
 Plugin 'tpope/vim-fugitive'
 Plugin 'scrooloose/nerdtree'
+Plugin 'janko-m/vim-test'
 
 " Editing.
 Plugin 'Raimondi/delimitMate'
@@ -198,8 +199,14 @@ nnoremap <Leader>b :b
 nnoremap <Leader>q :bdelete<CR>
 
 nnoremap <Leader>] :TagbarOpen fjc<CR>
-nnoremap <Leader>pf :CtrlP<CR>
-nnoremap <Leader>pt :CtrlPTag<CR>
+nnoremap <Leader>lf :CtrlP<CR>
+nnoremap <Leader>lt :CtrlPTag<CR>
+
+nnoremap <Leader>tn :TestNearest<CR>
+nnoremap <Leader>tf :TestFile<CR>
+nnoremap <Leader>ts :TestSuite<CR>
+nnoremap <Leader>tl :TestLast<CR>
+nnoremap <Leader>tv :TestVisit<CR>
 
 " Open new windows at the bottom and right instead of the top and left.
 " set splitbelow
@@ -225,6 +232,9 @@ let g:EasyMotion_leader_key="<Leader>g"
 
 " Search upward to the home directory for a tags file.
 set tags+=tags;$HOME
+
+" Set EasyTags to run asynchronously.
+let g:easytags_async = 1
 
 " Don't have a delay when pressinc <ESC> to exit from insert or visual mode.
 set ttimeout
