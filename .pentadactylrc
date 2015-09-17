@@ -5,7 +5,7 @@ map T :tabopen<CR>
 " Scroll half the window height on C-u and C-d.
 set scroll=0
 
-nmap ,, :nohls<CR><ESC>
+nmap ,, :nohlfind<CR><ESC>
 
 " " Use these characters to select links.
 " set hintchars=asdghjklqmwnebrvtycuxizop
