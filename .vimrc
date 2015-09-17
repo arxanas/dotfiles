@@ -47,6 +47,9 @@ Plugin 'JesseKPhillips/d.vim'
 Plugin 'Hackerpilot/DCD', {'rtp': 'editors/vim'}
 let g:dcd_path = expand('~/.vim/bundle/DCD')
 
+"" Latex.
+Plugin 'lervag/vimtex'
+
 " Notice that this kills ,gt so you should probably fix that.
 Plugin 'mhinz/vim-signify'
 call vundle#end()
