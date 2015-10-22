@@ -19,6 +19,7 @@ set hinttags+=a
 
 " Handle double-enter problem on many websites.
 se pk+=.*:<CR>
+se pk+=coderpad.io:<C-[>
 
 " Use green-on-black text.
 highlight Hint font-size: 10; border: solid white 1px; color: #00FF00; background-color: #000000; padding: 2px;
