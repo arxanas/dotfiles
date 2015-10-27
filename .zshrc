@@ -56,7 +56,6 @@ plugins=(
     pip
     python
     rsync
-    sublime
     tmux
     vagrant
     wd
