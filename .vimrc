@@ -140,7 +140,10 @@ set backspace=indent,eol,start
 set wildmenu
 set wildmode=list:longest:full
 
-" Use tags with Ctrl-P
+" Exclude files from .gitignore from Ctrl-P.
+let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
+
+" Use tags with Ctrl-P.
 let g:ctrlp_extensions = ['tag', 'buffertag', 'quickfix' , 'line', 'mixed']
 
 " Use case exactly as-is when autocompleting.
@@ -196,6 +199,7 @@ nmap <Leader>m ,w:silent !make<CR>:redraw!<CR>
 
 " Open NERDTree with ,n.
 nmap <Leader>n :NERDTreeToggle<CR>
+let g:NERDTreeIgnore = ['\.(pyc|o)$']
 
 " Toggle paste and nopaste mode with ,p.
 set pastetoggle=<Leader>p
