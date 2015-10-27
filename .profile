@@ -16,6 +16,12 @@ export PATH="$PATH:/usr/local/texlive/2011/bin/x86_64-darwin"
 # Java.
 export PATH="$PATH:/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home"
 
+# Haskell.
+export PATH="$PATH:/Users/Waleed/Library/Haskell/bin"
+
+# Hoogle requires custom libiconv.
+export LD_LIBRARY_PATH="/usr/local/opt/libiconv/lib:$LD_LIBRARY_PATH"
+
 # Android SDK.
 export ANDROID_HOME=/usr/local/opt/android-sdk
 

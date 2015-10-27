@@ -47,6 +47,9 @@ Plugin 'JesseKPhillips/d.vim'
 Plugin 'Hackerpilot/DCD', {'rtp': 'editors/vim'}
 let g:dcd_path = expand('~/.vim/bundle/DCD')
 
+"" Haskell.
+Plugin 'bitc/vim-hdevtools'
+
 "" Latex.
 Plugin 'lervag/vimtex'
 
