@@ -168,8 +168,8 @@ nnoremap K i<CR><Esc>
 nnoremap <Leader>k 0f(a<CR><Esc>$F)i<CR><Esc>kw>>:s/, /,\r\t/g<CR>j$
 
 " Let ,f justify the paragraph you're in.
-nnoremap <Leader>f {gw}
-inoremap <Leader>f <Esc>{gw}A
+nnoremap <Leader>f gwip
+inoremap <Leader>f <Esc>gwipi
 vnoremap <Leader>f gw
 
 " Use ,sa to switch to .h file.
