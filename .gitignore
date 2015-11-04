@@ -4,6 +4,9 @@
 # OSXFUSE
 .fuse_hidden*
 
+# My virtualenv configuration.
+.venv
+
 # Created by https://www.gitignore.io/api/vim,osxython,c,c++,intellij
 
 ### Vim ###
