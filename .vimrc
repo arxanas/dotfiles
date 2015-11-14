@@ -205,7 +205,7 @@ nmap <Leader>m ,w:silent !make<CR>:redraw!<CR>
 
 " Open NERDTree with ,n.
 nmap <Leader>n :NERDTreeToggle<CR>
-let g:NERDTreeIgnore = ['\.(pyc|o)$']
+let NERDTreeIgnore = ['\.pyc$', '\.o$', '^__pycache__$']
 
 " Toggle paste and nopaste mode with ,p.
 set pastetoggle=<Leader>p
