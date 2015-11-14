@@ -30,6 +30,8 @@ Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'scrooloose/nerdcommenter'
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
 
 " Languages.
 "" LESS.
@@ -121,6 +123,10 @@ let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
 let g:ycm_path_to_python_interpreter = '/usr/local/bin/python'
 
 let g:delimitMate_expand_cr = 1
+
+let g:UltiSnipsExpandTrigger = '<c-t>'
+let g:UltiSnipsJumpBackwardTrigger = '<c-h>'
+let g:UltiSnipsJumpForwardTrigger = '<c-t>'
 
 " If we use 'autoindent' instead of this, autoclose refuses to indent
 " correctly after typing {<CR>.
