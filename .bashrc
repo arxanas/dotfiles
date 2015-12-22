@@ -111,9 +111,9 @@ virtualenv()
     load_virtualenv
 }
 
-c()
+cd()
 {
-    cd "$@"
+    builtin cd "$@"
     load_profile
     load_virtualenv
 
@@ -123,7 +123,7 @@ c()
 mc()
 {
     mkdir -p "$@"
-    c "$@"
+    cd "$@"
 }
 
 # cd to the root of whatever project is currently being worked on.
