@@ -31,7 +31,6 @@ Plugin 'tpope/vim-repeat'
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'SirVer/ultisnips'
-Plugin 'honza/vim-snippets'
 
 " Languages.
 "" LESS.
