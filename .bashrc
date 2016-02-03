@@ -114,6 +114,10 @@ virtualenv()
     load_virtualenv
 }
 
+# Convenience functions for creating a new virtualenv in this directory.
+alias venv2='virtualenv -p python2 "$VENV_NAME"'
+alias venv3='virtualenv -p python3 "$VENV_NAME"'
+
 cd()
 {
     builtin cd "$@"
