@@ -14,6 +14,9 @@ alias ..="cd ..; l;"
 # vim doesn't use correct colors unless tmux takes the -2 option.
 alias tmux="tmux -2"
 
+# Parallelize `make` by default.
+alias make="make -j5"
+
 # Switch to a clean PS1, for whatever reason.
 alias clean_ps1="PS1=\"\\\$ \""
 
