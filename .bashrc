@@ -160,3 +160,6 @@ export HISTCONTROL="ignorespace"
 
 # Run nethack with no bones
 alias nethack="rm -f /usr/games/lib/nethackdir/bon*.Z; /usr/games/bin/nethack"
+
+# added by travis gem
+[ -f /Users/Waleed/.travis/travis.sh ] && source /Users/Waleed/.travis/travis.sh
