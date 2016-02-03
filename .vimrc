@@ -22,6 +22,7 @@ Plugin 'xolox/vim-easytags'
 Plugin 'tpope/vim-fugitive'
 Plugin 'scrooloose/nerdtree'
 Plugin 'janko-m/vim-test'
+Plugin 'qpkorr/vim-bufkill'
 
 " Editing.
 Plugin 'Raimondi/delimitMate'
