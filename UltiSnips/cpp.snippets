@@ -1,0 +1,19 @@
+extends c
+
+snippet cout
+std::cout << "${0:${VISUAL}}" << std::endl;
+endsnippet
+
+snippet cerr
+std::cerr << "${0:${VISUAL}}" << std::endl;
+endsnippet
+
+snippet using
+using std::${0:${VISUAL}};
+endsnippet
+
+snippet fore
+for (${1:auto i} : ${2:container}) {
+    ${0:${VISUAL}}
+}
+endsnippet

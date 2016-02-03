@@ -1,0 +1,69 @@
+snippet hguard
+#ifndef ${1:HEADER}
+#define $1
+
+${0:${VISUAL}}
+
+#endif
+endsnippet
+
+# Include with quotes.
+snippet incq
+#include "${0:`!p snip.rv = file_basename()`.h}"
+endsnippet
+
+# Include with angle-brackets
+snippet inca
+#include <${0:iostream}>
+endsnippet
+
+snippet main
+int main(${1:int argc, const char* argv[]}) {
+    ${0:${VISUAL}}
+}
+endsnippet
+
+snippet if
+if (${1:cond}) {
+    ${0:${VISUAL}}
+}
+endsnippet
+
+snippet ife
+if (${1:cond}) {
+    ${2:${VISUAL}}
+} else {
+    ${0}
+}
+endsnippet
+
+snippet for
+for (${1:int i = 0}; ${2:i < ${3:size}}; ${4:i++}) {
+    ${0:${VISUAL}}
+}
+endsnippet
+
+snippet wh
+while (${1:cond}) {
+    ${0:${VISUAL}}
+}
+endsnippet
+
+snippet ret
+return ${0};
+endsnippet
+
+snippet func
+${1:void} ${2:func}(${3}) {
+    ${0:${VISUAL}}
+}
+endsnippet
+
+snippet sizeof
+sizeof(${1:${VISUAL:arr}}) / sizeof($1[0])
+endsnippet
+
+global !p
+def file_basename():
+    return os.path.splitext(fn)[0]
+endglobal

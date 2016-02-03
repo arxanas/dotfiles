@@ -1,0 +1,17 @@
+snippet strict
+#!/bin/bash
+set -euo pipefail
+IFS=$'\n\t'
+endsnippet
+
+snippet func
+${1:func}() {
+    ${0:${VISUAL::}}
+}
+endsnippet
+
+snippet for
+for ${1:i} in ${2:*}; do
+    ${0:${VISUAL::}}
+done
+endsnippet

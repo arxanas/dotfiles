@@ -1,0 +1,158 @@
+## Statements.
+
+snippet imp
+import ${0:module}
+endsnippet
+
+snippet from
+from ${1:module} import ${0:member}
+endsnippet
+
+snippet ret
+return ${0}
+endsnippet
+
+snippet yld
+yield ${0}
+endsnippet
+
+## Control structures.
+
+snippet if
+if ${1:condition}:
+    ${0:${VISUAL:pass}}
+endsnippet
+
+snippet ife
+if ${1:condition}:
+    ${2:${VISUAL:pass}}
+else:
+    ${0:pass}
+endsnippet
+
+
+snippet elif
+elif ${1:condition}:
+    ${0:${VISUAL:pass}}
+endsnippet
+
+snippet el
+else:
+    ${0:${VISUAL:pass}}
+endsnippet
+
+snippet ife
+if ${1:condition}:
+    ${2:${VISUAL:pass}}
+else:
+    ${0:pass}
+endsnippet
+
+snippet for
+for ${1:i} in ${2:iter}:
+    ${0:${VISUAL:pass}}
+endsnippet
+
+snippet wh
+while ${1:True}:
+    ${2:${VISUAL:pass}}
+endsnippet
+
+snippet with
+with ${1:expr}${2: as ${3:var}}:
+    ${0:${VISUAL:pass}}
+endsnippet
+
+snippet try
+try:
+    ${1:${VISUAL:pass}}
+except ${2:Exception}${3: as ${4:e}}:
+    ${0:pass}
+endsnippet
+
+## Functions and classes.
+
+snippet def
+def ${1:func}(${2}):
+    ${0:${VISUAL:pass}}
+endsnippet
+
+snippet defm
+def ${1:func}(self${2:, ${3:arg1}}):
+    ${0:${VISUAL:pass}}
+endsnippet
+
+snippet test
+def test_${1:func}(${2}):
+    ${0:${VISUAL:pass}}
+endsnippet
+
+snippet testm
+def test_${1:func}(self${2:, arg1}):
+    ${0:${VISUAL:pass}}
+endsnippet
+
+snippet class
+class ${1:Class}${2:(${3:object})}:
+    ${0:${VISUAL:pass}}
+endsnippet
+
+## Documentation.
+
+# Insert a docstring. A docstring should only be inserted at the beginning of a
+# module, at the beginning of a class, or at the beginning of a function. If
+# inserted at the beginning of a module or a class, inserts an empty docstring.
+# If inserted at the beginning of a function, tries to document all parameters
+# as well.
+# (NOTE: This actually doesn't do any of that, but it should.)
+snippet doc
+"""${0:doc}"""
+endsnippet
+
+snippet dpar
+:param ${1:object} ${2:var}: ${0:description}
+endsnippet
+
+snippet dret
+:returns ${1:object}: ${0:description}
+endsnippet
+
+snippet dyie
+:yields ${1:object}: ${0:description}
+endsnippet
+
+snippet diva
+:ivar ${1:object} ${2:var}: ${0:description}
+endsnippet
+
+snippet drai
+:raises ${1:Exception}: ${0:reason}
+endsnippet
+
+## Default code snippets.
+
+snippet ifmain
+${1:def main():
+    ${0:${VISUAL:pass}}
+
+}if __name__ == "__main__":
+    main()
+endsnippet
+
+snippet p
+print(${0:${VISUAL}})
+endsnippet
+
+snippet pprint
+import pprint; pprint.pprint(${0:${VISUAL}})
+endsnippet
+
+snippet pdb
+import pdb; pdb.set_trace()
+endsnippet
+
+snippet paramet
+@pytest.mark.parametrize("${1:foo,bar}", [
+    ${0:${VISUAL:(foo, bar),}}
+])
+endsnippet
