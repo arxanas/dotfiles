@@ -36,9 +36,9 @@ prompt_battery()
         elif [[ "$percent" -gt 50 ]]; then
             echo -n "%{$FG[130]%}"
         elif [[ "$percent" -gt 35 ]]; then
-            echo -n "%{$fg_no_bold[red]%}"
-        else
             echo -n "%{$fg_bold[red]%}"
+        else
+            echo -n "%{$fg_no_bold[red]%}"
         fi
 
         echo -n "$battery_bar"
@@ -57,7 +57,7 @@ build_rprompt()
 # https://gist.github.com/remy/6079223#file-remy-zsh-theme
 
 CURRENT_BG='NONE'
-readonly SEGMENT_SEPARATOR='⮀'
+readonly SEGMENT_SEPARATOR=''
 
 # Begin a segment
 # Takes two arguments, background and foreground. Both can be omitted,
@@ -97,7 +97,7 @@ prompt_git() {
         else
             prompt_segment 76 black
         fi
-        echo -n "${ref/refs\/heads\//⭠ }"
+        echo -n "${ref/refs\/heads\// }"
     fi
 }
 
@@ -120,15 +120,20 @@ prompt_virtualenv() {
 prompt_dir()
 {
     prompt_segment 238 253
-    echo -n "${PWD/#$HOME/~} "
+    local volume_home_dir="/Volumes/Home$HOME"
+    local pwd="${PWD/#$volume_home_dir/~}"
+    pwd="${pwd/#$HOME/~}"
+    echo -n "$pwd "
 
-    # Draw a orange-ish # if root; otherwise a $.
+    # Print the prompt character as yellow if the last command succeeded, or
+    # red if it failed.
+    echo -n "%(?.%{$fg_bold[yellow]%}.%{$fg_bold[red]%})"
+
+    # Use a '#' if root, or '$' otherwise.
     if [[ "$EUID" == "0" ]]; then
-        echo -n "%{$fg_bold[red]%}#"
+        echo -n '#'
     else
-        # Draw a red $ if the last command had a non-zero exit status, or a
-        # yellow one otherwise.
-        echo -n "%(?.%{$fg_bold[yellow]%}.%{$fg_bold[red]%})\$"
+        echo -n '$'
     fi
 }
 
@@ -138,7 +143,8 @@ build_prompt()
     prompt_virtualenv
     prompt_dir
     prompt_end
-    echo -n "%{$reset_color%} "
+    echo -n "%{$reset_color%}"
+    echo -n " "
 }
 
 RPROMPT='$(build_rprompt)'
