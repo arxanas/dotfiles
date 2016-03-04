@@ -4,6 +4,9 @@ export PATH="/usr/local/sbin:/usr/local/bin:$PATH"
 # NodeJS
 export PATH="$PATH:$HOME/Waleed/node_modules/.bin"
 
+# Python.
+export PATH="$PATH:$HOME/Library/Python/3.5/bin"
+
 # Rubygems.
 export PATH="$PATH:$HOME/.gem/ruby/2.0.0/bin"
 
