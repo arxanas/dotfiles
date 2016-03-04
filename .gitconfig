@@ -1,9 +1,7 @@
-# This is Git's per-user configuration file.
 [user]
-    name = Waleed Khan
-    email = me@waleedkhan.name
-# Please adapt and uncomment the following lines:
-#	name = Waleed Khan
-#	email = waleed@waleedkhan.local
+	name = Waleed Khan
+	email = me@waleedkhan.name
 [push]
 	default = simple
+[core]
+	excludesfile = /Users/waleed/.gitignore
