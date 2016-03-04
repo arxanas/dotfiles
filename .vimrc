@@ -9,12 +9,10 @@ Plugin 'gmarik/Vundle.vim'
 " Appearance.
 Plugin 'Lokaltog/vim-powerline'
 Plugin 'wellsjo/wells-colorscheme.vim'
-" Plugin 'bling/vim-airline'
 
 " IDE.
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'scrooloose/syntastic'
-" Plugin 'fholgado/minibufexpl.vim'
 Plugin 'majutsushi/tagbar'
 Plugin 'kien/ctrlp.vim'
 Plugin 'xolox/vim-misc'
@@ -65,7 +63,7 @@ let g:signify_vcs_list = ['git']
 set dir=~/.vim/swapfiles
 
 " Except when editing a crontab.
-au BufEnter /private/tmp/crontab.* setl backupcopy=yes
+au BufEnter /private/tmp/crontab.* setl ackupcopy=yes
 
 set undodir=~/.vim/undo
 set undofile
@@ -96,12 +94,12 @@ match ExtraWhitespace /\s\+$/
 
 " Make colors not sickening.
 set bg=dark
-colorscheme wells-colors
+colorscheme wellsokai
 
 " Statusline
 let g:Powerline_symbols="fancy"
 let g:Powerline_symbols_override = { 'BRANCH': '', 'LINE': '', 'RO': '', 'FT': ''}
-let g:Powerline_dividers_override = ['', '', '', '']
+let g:Powerline_dividers_override = ['', '', '', '']
 set laststatus=2
 set statusline=%<%f\  " Filename
 set statusline+=%w%h%m%r " Options
