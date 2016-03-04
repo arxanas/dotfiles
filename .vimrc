@@ -63,7 +63,7 @@ let g:signify_vcs_list = ['git']
 set dir=~/.vim/swapfiles
 
 " Except when editing a crontab.
-au BufEnter /private/tmp/crontab.* setl ackupcopy=yes
+au BufEnter /private/tmp/crontab.* setl backupcopy=yes
 
 set undodir=~/.vim/undo
 set undofile
