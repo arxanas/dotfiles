@@ -5,3 +5,5 @@
 # Please adapt and uncomment the following lines:
 #	name = Waleed Khan
 #	email = waleed@waleedkhan.local
+[push]
+	default = simple
