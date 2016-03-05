@@ -7,13 +7,13 @@ ${0:${VISUAL}}
 #endif
 endsnippet
 
-# Include with quotes.
-snippet incq
+# User include.
+snippet incu
 #include "${0:`!p snip.rv = file_basename()`.h}"
 endsnippet
 
-# Include with angle-brackets
-snippet inca
+# System include.
+snippet incs
 #include <${0:iostream}>
 endsnippet
 
@@ -37,16 +37,40 @@ if (${1:cond}) {
 }
 endsnippet
 
+snippet else
+else {
+    ${0:${VISUAL}}
+}
+endsnippet
+
 snippet for
 for (${1:int i = 0}; ${2:i < ${3:size}}; ${4:i++}) {
     ${0:${VISUAL}}
 }
 endsnippet
 
-snippet wh
+snippet while
 while (${1:cond}) {
     ${0:${VISUAL}}
 }
+endsnippet
+
+snippet switch
+switch (${1:value}) {
+    ${0:${VISUAL}}
+}
+endsnippet
+
+snippet case
+case ${1:value}:
+    ${0:${VISUAL}}
+    break;
+endsnippet
+
+snippet default
+default:
+    ${0:${VISUAL}}
+    break;
 endsnippet
 
 snippet ret
@@ -57,6 +81,16 @@ snippet func
 ${1:void} ${2:func}(${3}) {
     ${0:${VISUAL}}
 }
+endsnippet
+
+snippet void
+void ${1:func}(${2}) {
+    ${0:${VISUAL}}
+}
+endsnippet
+
+snippet decl
+${1:void} ${2:func}(${3});
 endsnippet
 
 snippet sizeof

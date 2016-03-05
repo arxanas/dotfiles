@@ -10,8 +10,21 @@ ${1:func}() {
 }
 endsnippet
 
+snippet main
+main() {
+    ${0:${VISUAL::}}
+}
+main
+endsnippet
+
 snippet for
 for ${1:i} in ${2:*}; do
     ${0:${VISUAL::}}
 done
+endsnippet
+
+snippet if
+if ${1:[[ ${2:cond} ]]}; then
+    ${0:${VISUAL::}}
+fi
 endsnippet

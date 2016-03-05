@@ -1,10 +1,18 @@
 extends c
 
 snippet cout
-std::cout << "${0:${VISUAL}}" << std::endl;
+cout << "${0:${VISUAL}}" << endl;
 endsnippet
 
 snippet cerr
+cerr << "${0:${VISUAL}}" << endl;
+endsnippet
+
+snippet scout
+std::cout << "${0:${VISUAL}}" << std::endl;
+endsnippet
+
+snippet scerr
 std::cerr << "${0:${VISUAL}}" << std::endl;
 endsnippet
 
@@ -15,5 +23,13 @@ endsnippet
 snippet fore
 for (${1:auto i} : ${2:container}) {
     ${0:${VISUAL}}
+}
+endsnippet
+
+snippet try
+try {
+    ${1:${VISUAL}}
+} catch (${2:...}) {
+    ${0}
 }
 endsnippet

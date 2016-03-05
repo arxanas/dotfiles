@@ -1,9 +1,11 @@
 snippet begin
 \begin{${1:environment}}${2:[]}
-
   ${0:${VISUAL}}
-
 \end{$1}
+endsnippet
+
+snippet item
+\item${1:[${2:foo}]} ${0:${VISUAL}}
 endsnippet
 
 snippet use
@@ -12,4 +14,12 @@ endsnippet
 
 snippet paren
 \left(${0:${VISUAL}}\right)
+endsnippet
+
+snippet sec
+\section{${0:${VISUAL}}}
+endsnippet
+
+snippet subsec
+\subsection{${0:${VISUAL}}}
 endsnippet
