@@ -14,7 +14,7 @@ export PATH="$PATH:$HOME/.gem/ruby/2.0.0/bin"
 export PATH="$PATH:/Applications/XAMPP/xamppfiles/bin"
 
 # LaTeX.
-export PATH="$PATH:/usr/local/texlive/2011/bin/x86_64-darwin"
+export PATH="$PATH:/usr/local/texlive/2015/bin/x86_64-darwin"
 
 # Java.
 export PATH="$PATH:/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home"
