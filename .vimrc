@@ -53,6 +53,10 @@ Plugin 'bitc/vim-hdevtools'
 "" Latex.
 Plugin 'lervag/vimtex'
 
+"" Clojure.
+Plugin 'guns/vim-clojure-static'
+Plugin 'vim-scripts/paredit.vim'
+
 " Notice that this kills ,gt so you should probably fix that.
 Plugin 'mhinz/vim-signify'
 call vundle#end()
