@@ -129,7 +129,7 @@ let g:ycm_path_to_python_interpreter = '/usr/local/bin/python'
 let g:delimitMate_expand_cr = 1
 
 let g:UltiSnipsExpandTrigger = '<c-t>'
-let g:UltiSnipsJumpBackwardTrigger = '<c-h>'
+let g:UltiSnipsJumpBackwardTrigger = '<c-p>'
 let g:UltiSnipsJumpForwardTrigger = '<c-t>'
 
 " If we use 'autoindent' instead of this, autoclose refuses to indent
