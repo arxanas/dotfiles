@@ -4,4 +4,4 @@
 [push]
 	default = simple
 [core]
-	excludesfile = /Users/waleed/.gitignore
+	excludesfile = /Users/waleed/.gitignore_global
