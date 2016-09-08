@@ -38,6 +38,7 @@ nmap <Leader>m ,w:silent !make<CR>:redraw!<CR>
 
 " Open NERDTree with ,n.
 nmap <Leader>n :NERDTreeToggle<CR>
+
 " Toggle paste and nopaste mode with ,p.
 set pastetoggle=<Leader>p
 
