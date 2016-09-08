@@ -2,6 +2,10 @@ map h gT
 map l gt
 map T :tabopen<CR>
 
+" Plover keystrokes.
+map erfvik <Nop>
+map erfvu <Nop>
+
 " Scroll half the window height on C-u and C-d.
 set scroll=0
 
