@@ -5,6 +5,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'wellsjo/wells-colorscheme.vim'
 
 " IDE.
+Plug 'Valloric/YouCompleteMe'
 Plug 'janko-m/vim-test'
 Plug 'kien/ctrlp.vim'
 Plug 'majutsushi/tagbar'
