@@ -1,6 +1,8 @@
 #!/bin/bash
 
 export VENV_NAME=".venv"
+export VIRTUAL_ENV_DISABLE_PROMPT=1
+
 # Search upward looking for a virtualenv directory.
 _find_virtualenv()
 {

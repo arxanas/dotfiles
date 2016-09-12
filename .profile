@@ -1,3 +1,5 @@
 #!/bin/sh
 
-. ~/.shell.d/*.profile
+for i in ~/.shell.d/*.profile; do
+    source "$i";
+done

@@ -101,7 +101,6 @@ prompt_git() {
     fi
 }
 
-export VIRTUAL_ENV_DISABLE_PROMPT=1
 prompt_virtualenv() {
     load_virtualenv
 
