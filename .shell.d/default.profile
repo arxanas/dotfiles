@@ -43,6 +43,6 @@ export PATH="$PATH:/usr/local/Cellar/pebble-sdk/3.2/Pebble"
 # Custom utilities.
 export PATH="$HOME/.local/bin:$PATH"
 
-# vim as editor.
-export VISUAL="vim"
-export EDITOR="vim"
+# nvim as editor.
+export VISUAL="nvim"
+export EDITOR="nvim"
