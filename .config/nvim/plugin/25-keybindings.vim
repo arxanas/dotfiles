@@ -49,7 +49,7 @@ nnoremap <C-W><C-Q> <C-W>q
 
 " Don't have a delay when pressinc <ESC> to exit from insert or visual mode.
 set ttimeout
-set ttimeoutlen=100
+set ttimeoutlen=0
 
 " Instead of moving line-wise, move row-wise. This is different when a line is
 " broken.
