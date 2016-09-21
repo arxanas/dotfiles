@@ -5,7 +5,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'wellsjo/wells-colorscheme.vim'
 
 " IDE.
-Plug 'Valloric/YouCompleteMe'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'janko-m/vim-test'
 Plug 'kien/ctrlp.vim'
 Plug 'majutsushi/tagbar'
@@ -16,6 +16,7 @@ Plug 'qpkorr/vim-bufkill'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-fugitive'
 Plug 'xolox/vim-misc' | Plug 'xolox/vim-easytags'
+Plug 'zchee/deoplete-jedi'
 
 " Editing.
 Plug 'Lokaltog/vim-easymotion'
