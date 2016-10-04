@@ -1,1 +1,1 @@
-nnoremap <Leader>] :TagbarToggle fjc<CR>
+nnoremap <Leader>] :TagbarOpen fjc<CR>
