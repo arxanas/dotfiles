@@ -91,13 +91,48 @@ prompt_git() {
     local ref dirty
     if $(git rev-parse --is-inside-work-tree >/dev/null 2>&1); then
         dirty=$(parse_git_dirty)
-        ref=$(git symbolic-ref HEAD 2> /dev/null) || ref="➦ $(git show-ref --head -s --abbrev |head -n1 2> /dev/null)"
+        ref=$(git symbolic-ref HEAD 2> /dev/null) || ref="➦ git:$(git show-ref --head -s --abbrev |head -n1 2> /dev/null)"
         if [[ -n $dirty ]]; then
             prompt_segment 130 black
         else
             prompt_segment 76 black
         fi
-        echo -n "${ref/refs\/heads\// }"
+        echo -n "${ref/refs\/heads\// git:}"
+    fi
+}
+
+# Reimplement this command because hg is slow to launch.
+hg_root() {
+    local current_dir="$PWD"
+    while [[ "$current_dir" != '/' ]]; do
+        if [[ -d "$current_dir/.hg" ]]; then
+            echo "$current_dir"
+            return
+        fi
+        current_dir=$(dirname "$current_dir")
+    done
+}
+
+# Hg: current bookmark and whether dirty.
+prompt_hg() {
+    local hg_root=$(hg_root)
+    if [[ "$hg_root" != '' ]]; then
+        local bookmark_file="$hg_root"/.hg/bookmarks.current
+        if [[ -f "$bookmark_file" ]]; then
+            bookmark=$(<"$bookmark_file")
+        else
+            bookmark='<none>'
+        fi
+
+        if [[ "$INSIDE_TRAPALRM" != '1' ]]; then
+            prompt_segment yellow black
+        elif [[ "$(hg status)" != '' ]]; then
+            prompt_segment 130 black
+        else
+            prompt_segment 76 black
+        fi
+
+        echo -n " hg:$bookmark"
     fi
 }
 
@@ -139,6 +174,7 @@ prompt_dir()
 build_prompt()
 {
     prompt_git
+    prompt_hg
     prompt_virtualenv
     prompt_dir
     prompt_end

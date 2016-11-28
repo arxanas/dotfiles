@@ -42,7 +42,7 @@ setopt no_share_history
 # much faster.
 # DISABLE_UNTRACKED_FILES_DIRTY="true"
 
-# Uncomment following line if you want to  shown in the command execution time stamp 
+# Uncomment following line if you want to  shown in the command execution time stamp
 # in the history command output. The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|
 # yyyy-mm-dd
 # HIST_STAMPS="mm/dd/yyyy"
@@ -51,10 +51,8 @@ setopt no_share_history
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(
-    brew
     github
     npm
-    osx
     pip
     python
     rsync
@@ -68,10 +66,22 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-# Reset the most recent prompt every second.
+# Reset the most recent prompt as often as possible.
 # From http://stackoverflow.com/a/17915260/344643
-TMOUT=5
+TMOUT=1
+INSIDE_TRAPALRM=0
 TRAPALRM()
 {
+    # Use `INSIDE_TRAPALRM` to notify expensive prompt-drawing operations that
+    # they can take longer to run (since they won't be blocking the rendering
+    # of the main prompt). Also, if they take too long to run, don't have them
+    # keep queuing up; instead, wait for the currently-running instance to
+    # finish before launching a new one.
+    if [[ "$INSIDE_TRAPALRM" == 1 ]]; then
+        return
+    fi
+
+    INSIDE_TRAPALRM=1
     zle reset-prompt
+    INSIDE_TRAPALRM=0
 }
