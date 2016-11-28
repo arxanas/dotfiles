@@ -1,3 +1,3 @@
-command /Users/Waleed/.local/bin/battery-text
-output-file /Users/Waleed/.local/tmp/battery-text.cashe-output
+command $HOME/.local/bin/battery-text
+output-file $HOME/.local/tmp/battery-text.cashe-output
 time-to-live 20
