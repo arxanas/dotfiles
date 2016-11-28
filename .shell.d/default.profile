@@ -31,7 +31,7 @@ export LD_LIBRARY_PATH="/usr/local/opt/libiconv/lib:$LD_LIBRARY_PATH"
 export ANDROID_HOME=/usr/local/opt/android-sdk
 
 # Homebrew's Github tokens.
-source ~/.homebrew_github_api_token
+[ -f ~/.homebrew_github_api_token ] && source ~/.homebrew_github_api_token
 
 # NVM (Node Version Manager).
 export NVM_DIR="/Users/Waleed/.nvm"
