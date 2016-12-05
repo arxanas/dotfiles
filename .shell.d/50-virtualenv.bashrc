@@ -65,9 +65,16 @@ cd()
 # cd to the root of whatever project is currently being worked on.
 cdr() {
     local git_path
-    git_path=$(git rev-parse --show-toplevel)
+    git_path=$(git rev-parse --show-toplevel 2>/dev/null)
     if [[ "$?" == '0' ]]; then
         cd "$git_path"
+        return
+    fi
+
+    local hg_path
+    hg_path=$(hg root 2>/dev/null)
+    if [[ "$?" == '0' ]]; then
+        cd "$hg_path"
         return
     fi
 
