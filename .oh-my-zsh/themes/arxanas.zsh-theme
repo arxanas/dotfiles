@@ -173,6 +173,8 @@ prompt_dir()
 
 build_prompt()
 {
+    [[ -f '.DS_Store' ]] && rm '.DS_Store'
+
     prompt_git
     prompt_hg
     prompt_virtualenv
