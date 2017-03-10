@@ -35,7 +35,8 @@ DISABLE_CORRECTION="true"
 COMPLETION_WAITING_DOTS="true"
 
 # Don't share history between tmux tabs.
-setopt no_share_history
+setopt noincappendhistory
+setopt nosharehistory
 
 # Uncomment following line if you want to disable marking untracked files under
 # VCS as dirty. This makes repository status check for large repositories much,
